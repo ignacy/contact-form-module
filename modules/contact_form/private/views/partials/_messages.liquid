@@ -1,0 +1,3 @@
+{% query_graph 'modules/contact_form/get_messages' %}
+{% assign messages = g.customizations.results %}
+{% export messages, namespace: contact_form %}
