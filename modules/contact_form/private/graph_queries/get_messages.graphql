@@ -1,0 +1,44 @@
+query get_messages(
+  $per_page: Int,
+  $page: Int,
+  $id: ID,
+  $sender: String,
+)
+{
+  customizations (
+    is_deleted: false
+    per_page: $per_page
+    page: $page
+    id: $id
+    name: "message"
+    sort: [
+      {
+        name: "created_at"
+        order: "desc"
+      }
+    ]
+    properties: [
+     {
+        name: "sender"
+        value: $sender
+      }
+    ]
+  )
+  {
+    current_page
+    per_page
+    total_entries
+    total_pages
+    has_next_page
+    has_previous_page
+    results {
+      id
+      user {
+        id
+      }
+      created_at
+      sender: property(name: "sender")
+      content: property(name: "content")
+    }
+  }
+}

@@ -1,0 +1,8 @@
+---
+slug: 'contact_form/new_message'
+layout_name: 'modules/contact_form/layouts/main'
+authorization_policies:
+  - 'modules/contact_form/can_manage_contact_form'
+---
+
+{% include_form 'modules/contact_form/message', parent_resource_id: "message" %}

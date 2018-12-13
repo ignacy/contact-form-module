@@ -1,0 +1,6 @@
+name: Message
+custom_attributes:
+- name: sender
+  attribute_type: string
+- name: content
+  attribute_type: text
